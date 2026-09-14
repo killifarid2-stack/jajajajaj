@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-14T14:52:32.686Z",
+  "status": "PASS",
+  "checks": {
+    "all-core-animation-ids": true,
+    "time-local-keyframes": true,
+    "motion-path-bezier": true,
+    "graph-editor": true,
+    "canvas-transform-controls": true,
+    "group-parent-child": true,
+    "design-file-import-export": true,
+    "draft-publish-isolation": true,
+    "runtime-shared-evaluator": true,
+    "runtime-cleanup": true,
+    "state-guard-contract": true,
+    "safe-area": true,
+    "font-import": true,
+    "effect-engine": true,
+    "dom-capture-full-tree": true,
+    "studio-capture-merge": true,
+    "dynamic-binding-model": true,
+    "no-demo-animation-replacement": true,
+    "live-draft-overlay": true,
+    "iframe-player-call-editor": true,
+    "all-stage-scan": true,
+    "mvp-bindings": true,
+    "timed-controls-runtime": true
+  }
+}

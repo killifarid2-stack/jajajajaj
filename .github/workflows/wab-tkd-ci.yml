@@ -1,0 +1,33 @@
+name: WAB-TKD Production Verification
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Static production audits
+        run: |
+          npm run design-studio:final-audit
+          npm run production:asset-audit
+          npm run production:security-audit
+          npm run production:final-audit
+          npm run release:check
+      - name: Build production bundle
+        run: npm run build
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end smoke tests
+        run: npx playwright test tests/e2e

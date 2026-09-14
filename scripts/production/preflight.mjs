@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const required=['package.json','index.html','src/App.tsx','src/components/PublicScoreboard.tsx','src/components/BroadcastDesignRuntime.tsx','src/pages/BroadcastDesignStudioPage.tsx','supabase/config.toml','electron/main.cjs'];
+const missing=required.filter(p=>!fs.existsSync(path.join(root,p)));
+const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
+const problems=[];
+if(!pkg.scripts?.build) problems.push('missing build script');
+if(!pkg.scripts?.test) problems.push('missing test script');
+if(!pkg.scripts?.test?.includes('vitest')) problems.push('test script is not Vitest');
+if(!pkg.scripts?.['test:e2e']) problems.push('missing test:e2e script');
+if(missing.length) problems.push(...missing.map(x=>`missing required file: ${x}`));
+console.log(`PREFLIGHT: ${problems.length?'FAIL':'PASS'}`);
+for(const p of problems) console.log(`FAIL ${p}`);
+if(problems.length) process.exit(1);

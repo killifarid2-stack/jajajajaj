@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-14T14:54:02.672Z",
+  "status": "PASS",
+  "checks": {
+    "all-animation-catalog": true,
+    "native-preview": true,
+    "award-shared-renderer": true,
+    "dynamic-medal-trophy": true,
+    "advanced-keyframes": true,
+    "bezier-motion": true,
+    "conditional-states": true,
+    "layer-management": true,
+    "rulers-guides-safe-area": true,
+    "templates-version-history": true,
+    "safe-publish": true,
+    "external-ai-server-side": true,
+    "ai-advanced-actions": true,
+    "tournament-design-scope": true,
+    "supabase-design-rls": true,
+    "multi-display-sync": true,
+    "quick-control-customization": true,
+    "asset-library": true
+  }
+}
